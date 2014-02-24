@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------
-# Compute Reference Evapotranspiration ET0 on a daily time step
+# Compute Reference Evapotranspiration ET0 with Hargreaves equation on a daily time step
 # Michel Le Page, 2011
 #
 # When solar radiation data, relative humidity data and/or wind speed data are missing, they should be estimated using the procedures presented in this section. As an alternative, ETo can be estimated using the Hargreaves ETo equation
@@ -13,6 +13,8 @@
 # tmax: maximum temperature of the day (Celsius Degrees)
 #
 # ------------------------------------------------------------------
+
+from math import *
 
 def et0_hargreaves(day1,lat,tmoy,tmin,tmax):
 	if (tmin==tmax): return(-1)
