@@ -4,6 +4,8 @@
 #
 # The FAO-56 Penman-Monteith equation (Allen et al., 1998) estimates the reference crop evapotranspiration, ET0 (mm d-1)
 #
+# Monteith, J.L., 1965. Evaporation and Environment. 19th Symposia of the Society for Experimental Biology, University Press, Cambridge, 19:205-234.
+#
 # day1: julian day from 0 to 366
 # alt : altitude of the meteo station (meters)
 # hmes: height of measurement (meters)
@@ -15,12 +17,12 @@
 # hrmoy: average Relative Humidity of the day (%)
 # hrmin: minimum Relative Humidity of the day (%)
 # hrmax: maximum Relative Humidity of the day (%)
-# rs: Solar Radiation averaged for the day (w/m2)
+# rs: Solar Radiation averaged for the day (W/m2)
 #
 # ------------------------------------------------------------------
 
 def et0_pm(day1,alt,hmes,lat,tmoy,tmin,tmax,vv,hrmoy,hrmin,hrmax,rs):
-  if ((hrmax-hrmin)<.1 or tmin==tmax): return(0)
+  if ((hrmax-hrmin)<.1 or tmin==tmax): return(-1)
   try: 
     conv_rad=lat * pi / 180.
     # -- constantes --
@@ -46,4 +48,4 @@ def et0_pm(day1,alt,hmes,lat,tmoy,tmin,tmax,vv,hrmoy,hrmin,hrmax,rs):
     et0= (0.408*delta*(rn)+(900*g/(tmin+273))*u2*(es-ea))/(delta+g*(1+0.34*u2))
     return(et0)
   except:
-    return(0)
+    return(-1)
