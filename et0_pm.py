@@ -18,7 +18,7 @@
 # hrmin: minimum Relative Humidity of the day (%)
 # hrmax: maximum Relative Humidity of the day (%)
 # rs: Solar Radiation averaged for the day (W/m2)
-#
+# 
 # ------------------------------------------------------------------
 
 def et0_pm(day1,alt,hmes,lat,tmoy,tmin,tmax,vv,hrmoy,hrmin,hrmax,rs):
