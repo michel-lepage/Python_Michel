@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------
-# Compute Reference Evapotranspiration ET0 on a daily time step
+# Compute Reference Evapotranspiration ET0 with Penman-Monteith equation on a daily time step
 # Michel Le Page, 2011
 #
 # The FAO-56 Penman-Monteith equation (Allen et al., 1998) estimates the reference crop evapotranspiration, ET0 (mm d-1)
@@ -20,6 +20,8 @@
 # rs: Solar Radiation averaged for the day (W/m2)
 # 
 # ------------------------------------------------------------------
+
+from math import *
 
 def et0_pm(day1,alt,hmes,lat,tmoy,tmin,tmax,vv,hrmoy,hrmin,hrmax,rs):
   if ((hrmax-hrmin)<.1 or tmin==tmax): return(-1)
