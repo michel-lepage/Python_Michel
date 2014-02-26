@@ -47,7 +47,7 @@ def et0_pm(day1,alt,hmes,lat,tmoy,tmin,tmax,vv,hrmoy,hrmin,hrmax,rs):
     
     gflux=0
     delta= 4098*0.6108*exp(17.27*tmoy /(tmoy +237.3))/pow((tmoy +237.3),2)
-    et0= (0.408*delta*(rn)+(900*g/(tmin+273))*u2*(es-ea))/(delta+g*(1+0.34*u2))
+    et0= (0.408*delta*(rn)+(900*g/(tmoy+273))*u2*(es-ea))/(delta+g*(1+0.34*u2))
     return(et0)
   except:
     return(-1)
